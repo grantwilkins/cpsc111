@@ -1,0 +1,38 @@
+CP SC 1111: Lab 6, Section 001, Fall 2019
+
+Using an editor, answer the following questions:
+
+NAME: Grant Wilkins
+
+---------
+example.c
+---------
+1) What is the cause of the seg fault in the program called example.c?
+The cause of the segfault was that the program was reaching into a value that the array was not defined it. Specifically, the for loop was designed
+to run forever based on its case being i>=0. This caused the variable i to overaccess an undefined index in the array, causing the segmentation fault seeing as it reached illegal memory.
+
+
+--------
+broken.c
+--------
+2) What line in broken.c did the program seg fault on?
+It gave line 30 as the broken line.
+
+3) What was the value of the variable "count" at the time of the seg fault?
+10
+
+4) What was the value of the variable "i" at the time of the seg fault?
+781
+
+5) What was the value of the variable "search" at the time of the seg fault?
+1
+
+6) What are the values in the "table" array?
+$4 = {5, 10, 12, 14, 16, 18, 20, 22, 24, 26}
+
+7) what do you think the bug is?
+The bug is that it is overreaching in the array because of i being increased indefinitely. This goes back to the while loop.
+The while loop's parameter is search = 1, which is true because it is assignment but is not a conditional. So being in an infinite loop,
+the variable i is going out of bounds until it reaches an illegal point of memory access. Based on this issue there is a segmentation fault.
+This can be fixed by just adding a catch statement which is i < 10, and also fixing the while loop to say that search == 1.
+
